@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Media Queries Practice</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .block {
+            margin-bottom: 10px;
+        }
+
+        .block > div {
+            background: #00BCD4;
+            border: 1px solid #FFF;
+            height: 150px;
+            color: #FFF;
+            display: block;
+            width: 100%;
+        }
+
+        .inside {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .text {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <h2>1 block</h2>
+    <div class="first block">
+        <div class="colored">
+            <div class="inside">
+                <div class="text">1</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">2</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">3</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">4</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>2 block</h2>
+    <div class="second block">
+        <div class="colored">
+            <div class="inside">
+                <div class="text">1</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">2</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>3 block</h2>
+    <div class="third block">
+        <div class="colored">
+            <div class="inside">
+                <div class="text">1</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">2</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">3</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>4 block</h2>
+    <div class="fourth block">
+        <div class="colored">
+            <div class="inside">
+                <div class="text">1</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">2</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">3</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>5 block</h2>
+    <div class="fifth block">
+        <div class="colored">
+            <div class="inside">
+                <div class="text">1</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">2</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">3</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">4</div>
+            </div>
+        </div>
+        <div class="colored">
+            <div class="inside">
+                <div class="text">5</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

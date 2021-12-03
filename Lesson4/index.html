@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive image</title>
+    <style>
+        body {
+            display: flex;
+        }
+
+        .block {
+            flex: 1 0 30%;
+            margin: 10px;
+        }
+
+        .block img {
+            display: block;
+            width: 100%;
+        }
+
+        @media (max-width: 1200px) {
+            body {
+                flex-wrap: wrap;
+            }
+
+            .block {
+                flex: 0 0 50%;
+                margin: 0;
+                padding: 10px;
+
+                box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .block {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="block">
+        <img
+            alt=""
+            srcset="img/2920x1643.jpg 2920w,
+            img/1920x1080.jpg 1920w,
+            img/1700x956.jpg 1700w,
+            img/1000x600.jpg 1000w,
+            img/500x300.jpg 500w">
+    </div>
+    <div class="block">
+        <img
+            alt=""
+            srcset="img/2920x1643.jpg 2920w,
+            img/1920x1080.jpg 1920w,
+            img/1700x956.jpg 1700w,
+            img/1000x600.jpg 1000w,
+            img/500x300.jpg 500w">
+    </div>
+    <div class="block">
+        <img
+            alt=""
+            srcset="img/2920x1643.jpg 2920w,
+            img/1920x1080.jpg 1920w,
+            img/1700x956.jpg 1700w,
+            img/1000x600.jpg 1000w,
+            img/500x300.jpg 500w">
+    </div>
+    <!-- <div class="block">
+        <img
+            alt=""
+            sizes="(max-width: 900px) 100vw, (max-width: 1200px) 50vw, 30vw"
+            srcset="img/2920x1643.jpg 2920w,
+            img/1920x1080.jpg 1920w,
+            img/1700x956.jpg 1700w,
+            img/1000x600.jpg 1000w,
+            img/500x300.jpg 500w">
+    </div> -->
+
+</body>
+</html>
