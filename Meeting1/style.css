@@ -1,0 +1,172 @@
+/* latin-ext */
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nPrXyw023e1Ik.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nBrXyw023e.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nPrXyw023e1Ik.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nBrXyw023e.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nPrXyw023e1Ik.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/rubik/v14/iJWKBXyIfDnIV7nBrXyw023e.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body {
+    margin: 0;
+}
+
+:root {
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+
+.header {
+    padding: 46px 4px 44px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.header__wrapper {
+    max-width: 1152px;
+
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+}
+
+.header__logo-link {
+    font-size: .9rem;
+    line-height: 1.66666667;
+
+    color: #02012B;
+    text-decoration: none;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.header__logo-link:focus,
+.header__logo-link:hover {
+    color: #19BCE4;
+}
+
+.header__logo-link:focus {
+    outline: #19BCE4 auto 3px;
+}
+
+.header__logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+}
+
+.header__login-btn {
+
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+
+    padding: 10px 25px;
+
+    background: #19BCE4;
+    border-radius: 6px;
+
+    border: 0;
+
+    cursor: pointer;
+}
+
+.header__login-btn:focus {
+    outline: none;
+    box-shadow: 0 0 4px 0px #222222;
+}
+
+.header__login-btn:active {
+    box-shadow: inset 0 0 4px 0px #222222;
+}
+
+.header__nav {
+    flex-grow: 1;
+    margin: 0 120px 0 40px;
+}
+
+.nav__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 40px;
+    justify-content: flex-end;
+}
+
+/* .nav__item + .nav__item {
+    margin-left: 40px;
+} */
+
+.nav__link {
+    font-size: .9rem;
+    line-height: 1.16666667;
+
+    color: #02012B;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.nav__link:hover {
+    color: #19BCE4;
+}

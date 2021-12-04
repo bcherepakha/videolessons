@@ -1,0 +1,88 @@
+.first,
+.second,
+.third,
+.fifth {
+    display: flex;
+}
+
+.first .colored,
+.second .colored,
+.fifth .colored {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.third .colored {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 25%;
+}
+
+.fourth {
+    display: flex;
+}
+
+.fourth .colored {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.fourth .colored:last-child {
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 1800px) {
+    .first {
+        flex-wrap: wrap;
+    }
+
+    .first .colored {
+        flex-basis: 40%;
+    }
+
+    .third {
+        flex-wrap: wrap;
+    }
+
+    .third .colored {
+        flex-basis: 40%;
+        flex-grow: 1;
+    }
+
+    .fourth .colored {
+        flex-basis: 35%;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    .fourth .colored:nth-child(2) {
+        flex-shrink: 1;
+    }
+
+    .fifth {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .fifth .colored {
+        flex-basis: 33%;
+        flex-grow: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .third {
+        flex-wrap: nowrap;
+    }
+
+    .third .colored {
+        flex-basis: 30%;
+        flex-grow: 1;
+    }
+
+    .fifth .colored {
+        flex-grow: 1;
+        flex-basis: 40%;
+    }
+}
