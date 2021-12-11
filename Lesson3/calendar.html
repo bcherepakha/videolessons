@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="main"></main>
+    <aside class="aside">
+        <div class="calendar">
+            <div class="calendar__header">
+                <button class="calendar__btn calendar__btn--prev" aria-label="Previous month">
+                    <svg class="calendar__btn-image" viewBox="0 0 20 38" role="img" aria-label="">
+                        <path d="M19 1L1 19L19 37"/>
+                    </svg>
+                </button>
+                <span class="calendar__title">March 2018</span>
+                <button class="calendar__btn calendar__btn--next" aria-label="Next month">
+                    <svg class="calendar__btn-image calendar__btn-image--reverse" viewBox="0 0 20 38" role="img" aria-label="">
+                        <path d="M19 1L1 19L19 37"/>
+                    </svg>
+                </button>
+            </div>
+            <ul class="calendar__day-names">
+                <li class="calendar__day">M</li>
+                <li class="calendar__day">T</li>
+                <li class="calendar__day">W</li>
+                <li class="calendar__day">T</li>
+                <li class="calendar__day">F</li>
+                <li class="calendar__day">Sat</li>
+                <li class="calendar__day">Sun</li>
+            </ul>
+            <ul class="calendar__days">
+                <li class="calendar__day">
+                    <a href="?day=">1</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+</body>
+</html>

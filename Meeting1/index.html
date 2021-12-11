@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link rel="stylesheet" href="style.css">
+    <!-- https://www.figma.com/file/Mvwx61qz3NdPJG4cfDSqXJ/Building?node-id=0%3A1 -->
 </head>
 <body>
 
@@ -43,5 +44,35 @@
         </div>
     </header>
 
+    <section class="introduction">
+        <h1 class="introduction__title">Find Your Dream House</h1>
+        <p class="introduction__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra posuere sem purus enim eleifend habitant arcu, sed.</p>
+        <form class="introduction__form find-dreem">
+            <label class="find-dreem__label">
+                <span class="find-dreem__label-title">
+                    Location
+                </span>
+                <input class="find-dreem__input" type="text" name="location" value="California">
+            </label>
+            <label class="find-dreem__label">
+                <span class="find-dreem__label-title">
+                    Properties
+                </span>
+                <input class="find-dreem__input" type="text" name="properties" value="Delux">
+            </label>
+            <label class="find-dreem__label">
+                <span class="find-dreem__label-title">
+                    Price
+                </span>
+                <select class="find-dreem__select" name="price">
+                    <option value="5000">less then $5000</option>
+                    <option value="5000-10000">$5,000-$10,0000</option>
+                    <option value="10000-12000" selected>$10,000-$12,0000</option>
+                    <option value="12000-15000" selected>$12,000-$15,0000</option>
+                </select>
+            </label>
+            <button class="find-dreem__submit" type="submit">Search</button>
+        </form>
+    </section>
 </body>
 </html>

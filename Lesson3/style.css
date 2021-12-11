@@ -1,0 +1,135 @@
+:root {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+
+    color: #243D6F;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+
+    box-sizing: border-box;
+}
+
+.main {
+    flex: 1535 0 0;
+}
+
+.aside {
+    flex: 802 0 0;
+    background: rgba(42, 46, 65, 0.7);
+    padding: 3.59435173% 4.27899016%;
+}
+
+.calendar__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    box-sizing: border-box;
+    padding-bottom: 85px;
+
+    position: relative;
+}
+
+.calendar__header::before,
+.calendar__header::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+
+    width: 100%;
+    height: 2px;
+}
+
+.calendar__header::before {
+    background: #000000;
+    mix-blend-mode: normal;
+    opacity: 0.17;
+}
+
+.calendar__header::after {
+    transform: translateY(100%);
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    opacity: 0.13;
+}
+
+.calendar__title {
+    font-size: 1.28571429rem;
+    line-height: 1.16666667;
+
+    color: #FFFFFF;
+}
+
+.calendar__btn {
+    position: relative;
+
+    flex: 0 0 18px;
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    color: #fff;
+
+    box-sizing: border-box;
+}
+
+.calendar__btn::before {
+    width: 300%;
+    aspect-ratio: 1;
+
+    display: block;
+
+    background: transparent;
+    border-radius: 50%;
+
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    box-sizing: border-box;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 1;
+
+    transition: background .6s linear 0s;
+}
+
+.calendar__btn:hover {
+    cursor: pointer;
+}
+
+.calendar__btn:hover::before {
+    background: #3C82F9;
+}
+
+.calendar__btn-image {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 1/2;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    position: relative;
+    z-index: 2;
+}
+
+.calendar__btn-image--reverse {
+    transform: rotate(180deg);
+}

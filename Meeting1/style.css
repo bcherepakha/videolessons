@@ -170,3 +170,179 @@ body {
 .nav__link:hover {
     color: #19BCE4;
 }
+
+.introduction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 700px;
+
+    background: transparent url('img/intruduction2x.jpg') center center no-repeat;
+    background-size: cover;
+
+    position: relative;
+
+    padding: 80px 20px;
+    box-sizing: border-box;
+}
+
+.introduction::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    content: '';
+
+    background: #000;
+    opacity: 0.56;
+
+    z-index: 1;
+}
+
+.introduction__title {
+    font-weight: bold;
+    font-size: 3.2rem;
+    line-height: 1.1875;
+
+    color: #FFFFFF;
+
+    position: relative;
+    z-index: 2;
+
+    margin: 0 0 24px;
+
+    max-width: 1170px;
+}
+
+.introduction__description {
+    text-align: center;
+    color: #FFFFFF;
+
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+
+    max-width: 622px;
+}
+
+.introduction__form {
+    margin-top: 97px;
+
+    position: relative;
+    z-index: 2;
+
+    max-width: 1170px;
+}
+
+.find-dreem {
+    background: #fff;
+    padding: 24px;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.find-dreem__label,
+.find-dreem__submit {
+    flex: 1 0 0;
+}
+
+.find-dreem__submit {
+    margin-left: 38px;
+    background: #19BCE4;
+    border: none;
+    cursor: pointer;
+
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.2;
+
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.find-dreem__label {
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid rgba(25, 188, 228, 0.3);
+    box-sizing: border-box;
+
+    padding: 10px 30px;
+}
+
+.find-dreem__label:nth-child(2) {
+    margin: 0 30px 0 20px;
+}
+
+.find-dreem__label-title {
+    display: flex;
+
+    font-size: .7rem;
+    line-height: 1.21428571;
+
+    color: #555;
+
+    margin-bottom: 8px;
+}
+
+.find-dreem__label-title::after {
+    content: '';
+
+    flex: 0 0 16px;
+    aspect-ratio: 1;
+
+    background: transparent url("data:image/svg+xml,%3Csvg viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%2317C2EC' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") center center no-repeat;
+    background-size: 8px;
+}
+
+.find-dreem__input,
+.find-dreem__select {
+
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.2;
+
+    color: #222;
+    border: none;
+    background: transparent;
+}
+
+@media (max-width: 1210px) {
+    .introduction__form {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .find-dreem__label,
+    .find-dreem__submit {
+        flex-basis: 40%;
+    }
+
+    .find-dreem__label:nth-child(2),
+    .find-dreem__submit {
+        margin: 0;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .find-dreem__label,
+    .find-dreem__submit {
+        flex-basis: 100%;
+    }
+
+    .find-dreem__submit {
+        min-height: 70px;
+    }
+}
