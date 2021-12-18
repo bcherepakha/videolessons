@@ -111,6 +111,11 @@ body {
     width: 40px;
     height: 40px;
     margin-right: 8px;
+    stroke: currentColor;
+}
+
+.header__logo-img path {
+    fill: currentColor;
 }
 
 .header__login-btn {
@@ -345,4 +350,50 @@ body {
     .find-dreem__submit {
         min-height: 70px;
     }
+}
+
+.section {
+    background: #E5E5E5;
+    display: flex;
+    justify-content: center;
+}
+
+.section__wrapper {
+    flex: 0 0 100%;
+    max-width: 1152px;
+}
+
+.specializing {
+    padding: 120px 0 165px;
+    box-sizing: border-box;
+}
+
+.specializing__wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+}
+
+.specializing__left {
+    flex: 520 0 0;
+
+    position: relative;
+}
+
+.specializing__main-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 520 / 561;
+}
+
+.specializing__additional-img {
+    position: absolute;
+    bottom: -8.02139037%;
+    right: -7.30769231%;
+    width: 46.1538462%;
+    aspect-ratio: 24 / 16;
+}
+
+.specializing__right {
+    flex: 552 0 0;
 }
