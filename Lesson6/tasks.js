@@ -7,73 +7,41 @@
 //    На сайте зарегистрировано четыре пользователя с паролями.
 //    Получите у пользователя логин и пароль и скажите имеет ли он доступ на сайт
 
-function isRound( n ) {
-    return n % 10 === 0;
+function isRound( num ) {
+    return (num % 10) === 0;
 }
 
-console.log(10, isRound( 10 ) );
-console.log(15, isRound( 15 ) );
-console.log(22, isRound( 22 ) );
-console.log(17, isRound( 17 ) );
-console.log(44, isRound( 44 ) );
-
-//? 2. Получить у пользователя два числа и узнать остаток от деления первого на второе
-function mod( a, b ) {
+function getModulo(a, b) {
     return a % b;
 }
 
-console.log('13 % 5 =', mod(13, 5) );
+console.log( getModulo(10, 3) );
 
-function getStringLength( str ) {
-    return str.length;
-}
+function getNumber() {
+    let firstNum = prompt('Enter first number', '');
 
-console.log('Hello', getStringLength( 'Hello' ));
-
-function getMax( a, b ) {
-    if (a >= b) {
-        return a;
+    if (firstNum === null) {
+        alert('You not enter the number');
     } else {
-        return b;
-    }
-}
+        firstNum = parseInt(firstNum, 10);
 
-console.log('2 Vs 5', getMax(2, 5));
-console.log('8 Vs 5', getMax(8, 5));
-console.log('-8 Vs 5', getMax(-8, 5));
+        if (isNaN(firstNum)) {
+            alert('Wrong number');
+        }
 
-function checkNumInRange( num, start, end ) {
-    // return num > start && num < end;
-
-    if ((num <= start) || (num >= end)) {
-        return false;
-    } else {
-        return true;
+        return firstNum;
     }
 
-    // if (num > start) {
-    //     if (num < end) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // } else {
-    //     return false;
-    // }
+    return null;
 }
 
-//? && (AND, *)
-//? true && true === true           1*1 === 1
-//? true && false === false         1*0
-//? false && true === false         0*1
-//? false && false === false        0*0
+let firstNum = getNumber();
+let secondNum = getNumber();
 
-//? || (OR, +)
-//? true || true === true           1 + 1 === 1
-//? true || false === true          1 + 0
-//? false || true === true          0 + 1
-//? false || false === false        0 + 0 === 0
-
-console.log('5 in 2 ... 12', checkNumInRange( 5, 2, 12 ) );
-console.log('15 in 2 ... 12', checkNumInRange( 15, 2, 12 ) );
-console.log('-5 in 2 ... 12', checkNumInRange( -5, 2, 12 ) );
+if (firstNum !== null && secondNum !== null) {
+//? true && true => true
+//? true && false => false
+//? false && true => false
+//? false && false => false
+    console.log( `Остаток от деления ${firstNum} на ${secondNum}: `, getModulo(firstNum, secondNum) );
+}
