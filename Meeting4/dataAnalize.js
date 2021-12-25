@@ -48,16 +48,158 @@ const ANCESTRY_DATA = [
     {'name': 'Jacobus Bernardus van Brussel', 'sex': 'm', 'born': 1736, 'died': 1809, 'father': 'Jan van Brussel', 'mother': 'Elisabeth Haverbeke'}
 ];
 
-console.log( 'ANCESTRY_DATA', ANCESTRY_DATA );
+// console.log( 'ANCESTRY_DATA', ANCESTRY_DATA );
 
 /** Дана информация о людях ANCESTRY_DATA
  *
  * Используя этот набор данных, подсчитайте:
  *
- * ? 1. среднюю разницу в возрасте между матерями и их детьми.
- * ? 2. среднюю разницу в возрасте между родителями
- * ? 3. среднее количество детей в семье (in home)
- * ? 4. средний возраст людей для каждого из столетий.
+ * 1. среднюю разницу в возрасте между матерями и их детьми.
+ * 2. среднюю разницу в возрасте между родителями
+ * 3. среднее количество детей в семье
+ * 4. средний возраст людей для каждого из столетий.
  * Назначаем столетию людей, беря их год смерти, деля его на 100 и округляя:
  * `Math.ceil(person.died / 100)`.
 */
+
+function findPeople( name, data = ANCESTRY_DATA ) {
+    return data.find(function (people) {
+        return people.name === name;
+    });
+}
+
+function getAgeDiff(people1, people2) {
+    if (!people2.born || !people1.born) {
+        return null;
+    }
+
+    return people2.born - people1.born;
+}
+
+function getAverage(arr) {
+    return arr.reduce(
+        function (sum, num) {
+            return sum + num;
+        },
+        0
+    ) / arr.length;
+}
+
+function task1(data = ANCESTRY_DATA) {
+    const ageDiffs = data.map(function (people) {
+        const mother = findPeople(people.mother);
+
+        if (!mother) {
+            return null;
+        }
+
+        return getAgeDiff(mother, people);
+    }).filter(function (ageDiff) {
+        return ageDiff !== null;
+    });
+
+    return getAverage( ageDiffs );
+}
+
+function createFamilyKey(father, mother) {
+    return [father && father.name, mother && mother.name].join('+');
+}
+
+function getFamilies(data = ANCESTRY_DATA) {
+    // family = {
+    //     key: father.name + '+' + mother.name,
+    //     father: {},
+    //     mother: {},
+    //     children: [],
+    // }
+    return Object.values(
+        data.reduce(
+            function (families, people) {
+                const mother = findPeople(people.mother, data) || { name: people.mother };
+                const father = findPeople(people.father, data) || { name: people.father };
+                const key = createFamilyKey(father, mother);
+                const family = families[key] || { key, father, mother, children: [] };
+
+                family.children.push(people);
+
+                families[key] = family;
+
+                return families;
+            },
+            {}
+        )
+    );
+}
+
+function task2(data = ANCESTRY_DATA) {
+    const ageDiffs = getFamilies(data).map(function (family) {
+        return getAgeDiff(family.mother, family.father);
+    }).filter(function (ageDiff) {
+        return ageDiff !== null;
+    }).map(function (ageDiff) {
+        return Math.abs(ageDiff);
+    });
+
+    return getAverage(ageDiffs);
+}
+
+function task3(data = ANCESTRY_DATA) {
+    return getAverage(
+        getFamilies(data).map(function (family) {
+            return family.children.length;
+        })
+    );
+}
+
+function getCentury(people) {
+    if (!people.died) {
+        return null;
+    }
+
+    return Math.ceil(people.died / 100);
+}
+
+function getAge(people) {
+    if (!people.died || !people.born) {
+        return null;
+    }
+
+    return people.died - people.born;
+}
+
+function getPeoplesAverageAge( peoples ) {
+    return getAverage(
+        peoples
+            .map(getAge)
+            .filter(function (age) {
+                return age !== null;
+            })
+    );
+}
+
+function getPeoplesByCenturies( data = ANCESTRY_DATA ) {
+    return data.reduce(
+        function (centuries, people) {
+            const century = getCentury(people);
+
+            if (!centuries[century]) {
+                centuries[century] = [];
+            }
+
+            centuries[century].push(people);
+
+            return centuries;
+        },
+        {}
+    );
+}
+
+function task4(data = ANCESTRY_DATA) {
+    const centuries = getPeoplesByCenturies(data);
+
+    for (const century in centuries) {
+        centuries[century] = getPeoplesAverageAge( centuries[century] );
+    }
+
+    return centuries;
+}
