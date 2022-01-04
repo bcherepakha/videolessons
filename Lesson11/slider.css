@@ -1,0 +1,140 @@
+.slider {
+    position: relative;
+
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 0 4px;
+
+    box-sizing: border-box;
+
+    margin: 2rem auto;
+    overflow: hidden;
+}
+
+.slider__slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.slider__prev,
+.slider__next {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    z-index: 2;
+
+    transform: translateY (-50%);
+}
+
+.slider__next {
+    left: auto;
+    right: 0;
+}
+
+.slider__timeline {
+    --animationDuration: 3s;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    transform-origin: left top;
+    transform: scaleX(0);
+
+    background: red;
+}
+
+.slider__timeline.animated {
+    animation: timeGrow var(--animationDuration) linear 0s infinite;
+}
+
+@keyframes timeGrow {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.fade .slider__body{
+    position: relative;
+
+    box-sizing: content-box;
+    width: 100%;
+    padding-top: 50%;
+}
+
+.fade .slider__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+}
+
+.fade .slider__slide {
+    opacity: 0;
+    transition: opacity .8s ease-in-out 0s;
+    z-index: 0;
+}
+
+.fade .slider__current {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slide .slider__body{
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    transition: transform .8s ease-in-out 0s;
+}
+
+.slide .slider__slide {
+    position: relative;
+
+    flex: 0 0 100%;
+    padding-top: 50%;
+    height: 0;
+
+    box-sizing: content-box;
+}
+
+.slide .slider__slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slider__run {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+
+    transform: translateX(-100%) translateX(-5px);
+
+    z-index: 3;
+}
+
+.slider__stop {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+
+    transform: translateX(5px);
+
+    z-index: 3;
+}
