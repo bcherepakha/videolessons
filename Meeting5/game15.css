@@ -1,0 +1,72 @@
+.board {
+    width: 40vw;
+    height: 40vw;
+
+    margin: 10px auto;
+
+    border: 1px solid;
+
+    position: relative;
+
+    box-sizing: border-box;
+}
+
+.board__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    cursor: pointer;
+    user-select: none;
+
+    display: flex;
+    width: 25%;
+    height: 25%;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    border: 2px solid #000;
+    font-size: 5em;
+
+    transition: all .6s ease-in 0s;
+    will-change: transform;
+
+    overflow: hidden;
+}
+
+.board__item::after {
+    z-index: -1;
+
+    animation: moveAnimation .5s linear 0s 1;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-25%, -25%);
+
+    width: 200%;
+    height: 200%;
+
+    border-radius: 50%;
+}
+
+.board__item--can-move::after,
+.board__item--cant-move::after {
+    content: '';
+    background: rgb(0, 200, 0, .5);
+}
+
+.board__item--cant-move::after {
+    background: rgb(200, 0, 0, .5);
+}
+
+@keyframes moveAnimation {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
