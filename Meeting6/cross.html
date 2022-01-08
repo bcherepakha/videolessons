@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross</title>
+    <link rel="stylesheet" href="cross.css">
+    <script src="EventSource.js" defer></script>
+    <script src="robot.js" defer></script>
+    <script src="cross.js" defer></script>
+</head>
+<body>
+    <form class="actions">
+        <select name="robotName">
+            <option selected value="human">Играть с человеком</option>
+            <option value="x">Компьютер играет крестиками</option>
+            <option value="0">Компьютер играет ноликами</option>
+        </select>
+        <button
+            type="submit"
+            class="action action--start">
+            Начать заново
+        </button>
+    </form>
+    <div class="cross">
+        <div class="cross__board">
+            <div class="cross__board--row">
+                <div class="cross__board-item" data-row="0" data-column="0">
+                    <svg class="x cross__board-item-el" viewBox="0 0 80 80">
+                        <line class="x__line1" x1="20" y1="10" x2="60" y2="70"/>
+                        <line class="x__line2" x1="60" y1="10" x2="20" y2="70"/>
+                    </svg>
+                </div>
+                <div class="cross__board-item" data-row="0" data-column="1">
+                    <svg class="o cross__board-item-el" viewBox="0 0 80 80">
+                        <ellipse cx="40" cy="40" rx="20" ry="30"/>
+                    </svg>
+                </div>
+                <div class="cross__board-item" data-row="0" data-column="2"></div>
+            </div>
+            <div class="cross__board--row">
+                <div class="cross__board-item"></div>
+                <div class="cross__board-item"></div>
+                <div class="cross__board-item"></div>
+            </div>
+            <div class="cross__board--row">
+                <div class="cross__board-item"></div>
+                <div class="cross__board-item"></div>
+                <div class="cross__board-item"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
