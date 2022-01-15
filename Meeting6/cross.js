@@ -5,6 +5,7 @@ function CrossGame(props) {
     this.props = props;
 
     this.rootEl = document.querySelector(props.selector);
+    this.boardEl = this.rootEl.querySelector('.cross__board');
 
     this.cells = [];
 
@@ -23,6 +24,8 @@ function CrossGame(props) {
         });
 
     this.start();
+
+    this.boardEl.addEventListener('animationend', this.onAnimationEnd.bind(this));
     // this.rootEl.addEventListener('click', (e) => {
     //     const cellEl = e.target.closest('.cross__board-item');
     //     const rowIndex = this.cells.findIndex(rowItems => rowItems.includes(cellEl));
@@ -42,8 +45,32 @@ CrossGame.GAME_STARTED = 1;
 CrossGame.GAME_WIN = 2;
 CrossGame.GAME_STANDOFF = 3;
 
+CrossGame.prototype.onAnimationEnd = function (e) {
+    const done = e.animationName === 'a-o'
+        || e.animationName === 'a-x' && e.target.classList.contains('x__line2');
+
+    if (done) {
+        this.drawing = false;
+
+        const { currentUser } = this;
+        const isEnded = this.isGameEnd(currentUser);
+
+        if (!isEnded) {
+            this.currentUser = currentUser === CrossGame.X ? CrossGame.O : CrossGame.X;
+            this.dispatchEvent('user-change');
+        }
+    }
+};
 
 CrossGame.prototype.step = function (cellNumber, rowNumber) {
+    if (this._blockStep) {
+        return ;
+    }
+
+    if (this.drawing) {
+        return ;
+    }
+
     if (this.status !== CrossGame.GAME_STARTED) {
         throw new Error('game not started');
     }
@@ -58,19 +85,20 @@ CrossGame.prototype.step = function (cellNumber, rowNumber) {
 
     this.board[rowNumber][cellNumber] = currentUser;
 
-    const isEnded = this.isGameEnd(currentUser);
-
-    if (!isEnded) {
-        this.currentUser = currentUser === CrossGame.X ? CrossGame.O : CrossGame.X;
-    }
-
+    this.drawing = true;
     this.render();
 };
+
+CrossGame.prototype.blockStep = function (block) {
+    this._blockStep = block;
+}
 
 CrossGame.prototype.start = function () {
     const {EMPTY} = CrossGame;
 
     this.status = CrossGame.GAME_STARTED;
+    this.drawing = false;
+    this.blockStep(false);
     this.currentUser = CrossGame.X;
     this.board = [
         [EMPTY, EMPTY, EMPTY],
@@ -79,6 +107,7 @@ CrossGame.prototype.start = function () {
     ];
 
     this.render();
+    this.dispatchEvent('start');
 };
 
 CrossGame.prototype.createX = function () {
@@ -130,7 +159,7 @@ CrossGame.prototype.render = function () {
 
             if (cellData === CrossGame.EMPTY) {
                 cellEl.innerText = '';
-            } else if (cellEl.innerText === '') {
+            } else if (cellEl.innerHTML === '') {
                 const el = cellData === CrossGame.X
                     ? this.createX()
                     : this.createO();
@@ -223,25 +252,3 @@ CrossGame.prototype.isGameEnd = function (currentUser) {
 
     return false;
 };
-
-const game = new CrossGame({
-    selector: '.cross'
-});
-
-game.eventSource.addEventListener('endgame', function() {
-    let message = '';
-
-    if (game.status === CrossGame.GAME_STANDOFF) {
-        message = 'Ничья';
-    } else if (game.status === CrossGame.GAME_WIN) {
-        const winner = game.currentUser === CrossGame.X ? 'крестики' : 'нолики';
-
-        message = `Выиграли ${winner}`;
-    }
-
-    if (message) {
-        alert(message);
-    }
-});
-
-console.log( game );

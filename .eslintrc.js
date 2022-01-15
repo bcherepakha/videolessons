@@ -1,9 +1,9 @@
-// eslint-disable-next-line no-undef
-module.exports = {
+export default {
     'env': {
         'browser': true,
     },
     'extends': 'eslint:recommended',
+    "parser": "babel-eslint",
     'parserOptions': {
         'ecmaVersion': 2021,
         'sourceType': 'module'
