@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Try to create app as http://todomvc.com/">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="./todoList.css">
+    <script src="./app.js" type="module"></script>
+    <!-- Server: https://mockapi.io/projects/5d9969125641430014051851 -->
+</head>
+<body>
+    <div class="todoapp">
+        <h1>todos</h1>
+        <form action="" method="GET" class="header">
+            <label class="complete-all-label">
+                <input
+                    class="complete-all"
+                    type="checkbox"
+                    name="complete"
+                    aria-label="Mark all as complete">
+                <span></span>
+            </label>
+            <input
+                required
+                class="new-todo"
+                placeholder="What needs to be done?"
+                autofocus=""
+                name="task"
+                aria-label="What needs to be done?">
+            <button class="visually-hidden submit" type="submit">Add</button>
+        </form>
+        <div class="main">
+            <ul class="todo-list">
+                <!-- <li>
+                    <div class="view">
+                        <input class="toggle" type="checkbox">
+                        <span>Task 1</span>
+                        <button class="destroy"></button>
+                    </div>
+                    <form>
+                        <input class="edit" value="Task 1" />
+                        <button class="visually-hidden" type="submit">
+                            Изменить
+                        </button>
+                    </form>
+                </li>
+                <li class="editing">
+                    <div class="view">
+                        <input class="toggle" type="checkbox">
+                        <span>Task 2</span>
+                        <button class="destroy"></button>
+                    </div>
+                    <input class="edit" value="Task 2">
+                </li> -->
+            </ul>
+        </div>
+        <footer class="footer">
+            <div class="todo-count">
+                <strong>3</strong> items left / <strong>0</strong> completed
+            </div>
+            <ul class="filters">
+                <li>
+                    <a class="selected" href="?filter=all">All</a>
+                </li>
+                <li>
+                    <a href="?filter=active">Active</a>
+                </li>
+                <li>
+                    <a href="?filter=completed">Completed</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>
