@@ -1,23 +1,11 @@
-let robot;
+const robots = [];
+withStepsSpy(CrossGame);
 const settings = new Settings();
 const game = new CrossGame({
     selector: '.cross'
 });
 
-settings.eventSource.addEventListener('submit', () => {
-    if (robot) {
-        robot.destroy();
-        robot = null;
-    }
-
-    const { robotName } = settings.getData();
-
-    if (robotName !== 'human') {
-        robot = new CrossGameRobot({ robotName, game });
-    }
-
-    game.start();
-});
+settings.eventSource.addEventListener('submit', startGame);
 
 game.eventSource.addEventListener('endgame', function() {
     let message = '';
@@ -35,4 +23,26 @@ game.eventSource.addEventListener('endgame', function() {
     }
 });
 
-console.log( game );
+startGame();
+
+function startGame() {
+    if (robots.length) {
+        robots.forEach(robot => robot.destroy());
+        robots.length = 0;
+    }
+
+    const { robotName } = settings.getData();
+
+    if (robotName !== 'human' && [CrossGame.X, CrossGame.O].includes(robotName)) {
+        robots.push( new CrossGameRobot({ robotName, game }) );
+    }
+
+    if (robotName === 'computer') {
+        robots.push(
+            new CrossGameRobot({ robotName: CrossGame.X, game }),
+            new CrossGameRobot({ robotName: CrossGame.O, game })
+        )
+    }
+
+    game.start();
+}

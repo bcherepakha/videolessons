@@ -64,11 +64,11 @@ CrossGame.prototype.onAnimationEnd = function (e) {
 
 CrossGame.prototype.step = function (cellNumber, rowNumber) {
     if (this._blockStep) {
-        return ;
+        return false;
     }
 
     if (this.drawing) {
-        return ;
+        return false;
     }
 
     if (this.status !== CrossGame.GAME_STARTED) {
@@ -85,8 +85,16 @@ CrossGame.prototype.step = function (cellNumber, rowNumber) {
 
     this.board[rowNumber][cellNumber] = currentUser;
 
+    // this.steps.push({
+    //     user: currentUser,
+    //     rowNumber,
+    //     cellNumber,
+    // })
+
     this.drawing = true;
     this.render();
+
+    return true;
 };
 
 CrossGame.prototype.blockStep = function (block) {
@@ -105,6 +113,7 @@ CrossGame.prototype.start = function () {
         [EMPTY, EMPTY, EMPTY],
         [EMPTY, EMPTY, EMPTY],
     ];
+    // this.steps = [];
 
     this.render();
     this.dispatchEvent('start');
