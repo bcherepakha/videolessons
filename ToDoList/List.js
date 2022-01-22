@@ -15,6 +15,11 @@ export class List {
         this.rootEl.append(item.render());
     }
 
+    addItems(items) {
+        this.items.push(...items);
+        this.render();
+    }
+
     removeItem(destroyedItem) {
         this.items = this.items.filter(item => item !== destroyedItem);
         destroyedItem.remove();

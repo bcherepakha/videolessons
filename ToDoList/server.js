@@ -19,12 +19,8 @@ export class Server {
             url += `&text=${text.trim().toLowerCase()}`;
         }
 
-        return fetch(url, {
-            method: 'GET',
-            headers: {
-                'X-MY-OWN-HEADER': 'something'
-            }
-        }).then(response => response.json());
+        return fetch(url)
+            .then(response => response.json());
     }
 
     async createTask( taskData ) {
