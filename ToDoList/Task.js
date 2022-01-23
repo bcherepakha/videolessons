@@ -7,6 +7,24 @@ export class Task extends EventSource {
         this.data = data;
         this.editing = false;
         this.createMarkup();
+
+        Object.defineProperty(this, '_hidden', {
+            configurable: true,
+            enumerable: false,
+            value: false,
+            writable: true,
+        });
+    }
+
+    get hidden() {
+        return this._hidden;
+    }
+
+    set hidden(value) {
+        this._hidden = value;
+
+        this.render();
+        this.dispatch('visibility-change');
     }
 
     createMarkup() {
@@ -98,11 +116,12 @@ export class Task extends EventSource {
     }
 
     render() {
-        const { data: { completed, text}, editing } = this;
+        const { data: { completed, text}, editing, hidden } = this;
 
         this.completeEl.checked = completed;
         this.textEl.innerText = text;
         this.editTextEl.value = text;
+        this.rootEl.hidden = hidden;
 
         if (completed) {
             this.rootEl.classList.add('completed');

@@ -1,13 +1,13 @@
 import AddTaskForm from './AddTaskForm.js';
 import { Task } from './Task.js';
 import { List } from './List.js';
-// import TaskStorage from './TaskStorage.js';
 import { Server } from './Server.js';
+import { Filter } from './Filter.js';
 
 const addTaskForm = new AddTaskForm( onTaskCreate );
 const list = new List();
-// const storage = new TaskStorage();
 const api = new Server();
+const filter = new Filter();
 
 init();
 
@@ -16,11 +16,33 @@ async function init() {
     const tasks = data.map(createTask);
 
     list.addItems(tasks);
+
+    filter.addEventListener('change', onFilterChange);
+}
+
+function onFilterChange() {
+    list.items.forEach(task => {
+        task.hidden = isTaskHidden(task.data);
+    });
+}
+
+function isTaskHidden({ completed }) {
+    const { value } = filter;
+
+    switch (value) {
+        case 'all':
+            return false;
+        case 'active':
+            return completed;
+        case 'completed':
+            return !completed;
+    }
 }
 
 function createTask(taskData) {
     const task = new Task(taskData);
 
+    task.hidden = isTaskHidden(task.data);
     task.addEventListener('change', onTaskChange);
     task.addEventListener('destroy', onTaskDestroy);
 
@@ -32,7 +54,6 @@ async function onTaskCreate(taskData) {
     const task = createTask(taskServerData);
 
     list.addItem(task);
-    // storage.setData(list.getData());
 }
 
 async function onTaskChange( e ) {
@@ -40,8 +61,7 @@ async function onTaskChange( e ) {
     const newData = await api.updateTask(data);
 
     task.setData(newData);
-
-    // storage.setData(list.getData());
+    task.hidden = isTaskHidden(task.data);
 }
 
 function onTaskDestroy(e) {
@@ -49,5 +69,4 @@ function onTaskDestroy(e) {
 
     return api.deleteTask(task.data.id)
         .then( list.removeItem(task) );
-    // storage.setData(list.getData());
 }
