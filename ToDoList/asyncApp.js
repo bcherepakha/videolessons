@@ -3,11 +3,13 @@ import { Task } from './Task.js';
 import { List } from './List.js';
 import { Server } from './Server.js';
 import { Filter } from './Filter.js';
+import { Counter } from './Counter.js';
 
-const addTaskForm = new AddTaskForm( onTaskCreate );
-const list = new List();
+const addTaskForm = new AddTaskForm( onTaskCreate, onSearch );
+const list = new List( onListChange );
 const api = new Server();
 const filter = new Filter();
+const counter = new Counter();
 
 init();
 
@@ -26,17 +28,33 @@ function onFilterChange() {
     });
 }
 
-function isTaskHidden({ completed }) {
+function isTaskHidden({ completed, text }) {
     const { value } = filter;
+    let result = false;
 
     switch (value) {
         case 'all':
-            return false;
+            result = false;
+            break;
         case 'active':
-            return completed;
+            result = completed;
+            break;
         case 'completed':
-            return !completed;
+            result = !completed;
+            break;
     }
+
+    if (result) {
+        return result;
+    }
+
+    const { search } = addTaskForm;
+
+    if (!search) {
+        return result;
+    }
+
+    return text.search(search) < 0;
 }
 
 function createTask(taskData) {
@@ -54,6 +72,7 @@ async function onTaskCreate(taskData) {
     const task = createTask(taskServerData);
 
     list.addItem(task);
+    onSearch('');
 }
 
 async function onTaskChange( e ) {
@@ -62,6 +81,8 @@ async function onTaskChange( e ) {
 
     task.setData(newData);
     task.hidden = isTaskHidden(task.data);
+
+    onListChange();
 }
 
 function onTaskDestroy(e) {
@@ -69,4 +90,19 @@ function onTaskDestroy(e) {
 
     return api.deleteTask(task.data.id)
         .then( list.removeItem(task) );
+}
+
+function onSearch(search) {
+    list.items.forEach(task => {
+        task.hidden = isTaskHidden(task.data);
+    });
+}
+
+function onListChange() {
+    counter.setItemsCount(
+        list.items.length,
+        list.items
+            .filter( ( { data : { completed }} ) => completed )
+            .length
+    );
 }
