@@ -4,115 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building</title>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link rel="stylesheet" href="style.css">
-    <!-- https://www.figma.com/file/Mvwx61qz3NdPJG4cfDSqXJ/Building?node-id=0%3A1 -->
+    <title>Plantku</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <header class="header">
-        <div class="header__wrapper">
-            <a class="header__logo-link" href="/" aria-current="page">
-                <svg role="img" aria-label="" class="header__logo-img" viewBox="0 0 40 40">
-                    <path d="M20.5938 8.12957C20.2517 7.83441 19.7483 7.83441 19.4063 8.12957L5.70498 19.9472C5.50526 20.1191 5.38989 20.3709 5.38989 20.6365V37.7267C5.38989 38.2302 5.79691 38.6364 6.2988 38.6364H33.7014C34.2031 38.6364 34.6103 38.2301 34.6103 37.7267V20.6365C34.6103 20.3708 34.4949 20.119 34.2952 19.9472L20.5938 8.12957ZM32.7918 36.8187H7.20841V21.0514L20.0001 10.0167L32.7918 21.0514V36.8187Z"/>
-                    <path d="M39.3668 17.4384L21.1855 1.8031C20.5033 1.21798 19.4963 1.21798 18.814 1.8031L0.632614 17.4384C-0.128646 18.0929 -0.215383 19.2405 0.439071 20.0026C1.09535 20.763 2.24285 20.8499 3.00327 20.1953L19.9997 5.57909L36.9961 20.1953C37.3399 20.4906 37.7609 20.6364 38.1801 20.6364C38.6923 20.6364 39.2009 20.4211 39.5603 20.0026C40.2149 19.2405 40.1281 18.0929 39.3668 17.4384Z"/>
-                    <path d="M15.5893 18.3584C13.3567 18.3584 10.8445 19.5789 10.4904 23.0008C9.78024 29.8635 19.3775 35.0059 19.7855 35.2229C19.8523 35.2576 19.9253 35.275 19.9982 35.275C20.0703 35.275 20.144 35.2576 20.2109 35.2229C20.6189 35.0059 30.2161 29.8635 29.5077 23.0008C29.1545 19.5789 26.6415 18.3584 24.408 18.3584C22.8255 18.3584 21.2074 18.9191 19.9983 19.8705C18.7889 18.9191 17.1701 18.3584 15.5893 18.3584Z"/>
-                </svg>
-                Building
-            </a>
-
-            <nav class="header__nav nav">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a class="nav__link" href="/" aria-current="page">Home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="#/services">Services</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="#/about">About Us</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="#/properties">Properties</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__link" href="#/contact">Contact</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <button class="header__login-btn">Log in</button>
-        </div>
+        <a class="header__logo-link" href="/">
+            <img src="img/logo.svg" alt="Plantku">
+        </a>
+        <button aria-label="search" class="header__search-link">
+            <svg role="img" aria-label="" class="header__link-img" viewBox="0 0 20 20">
+                <path d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17.5 17.5L13.875 13.875" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <a aria-label="basket" class="header__basket-link" href="#">
+            <svg role="img" aria-label="" class="header__link-img" viewBox="0 0 20 20">
+                <path d="M7.50002 18.3333C7.96026 18.3333 8.33335 17.9602 8.33335 17.5C8.33335 17.0397 7.96026 16.6666 7.50002 16.6666C7.03978 16.6666 6.66669 17.0397 6.66669 17.5C6.66669 17.9602 7.03978 18.3333 7.50002 18.3333Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16.6666 18.3333C17.1269 18.3333 17.5 17.9602 17.5 17.5C17.5 17.0397 17.1269 16.6666 16.6666 16.6666C16.2064 16.6666 15.8333 17.0397 15.8333 17.5C15.8333 17.9602 16.2064 18.3333 16.6666 18.3333Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M0.833313 0.833374H4.16665L6.39998 11.9917C6.47618 12.3754 6.6849 12.72 6.9896 12.9653C7.2943 13.2106 7.67556 13.3409 8.06665 13.3334H16.1666C16.5577 13.3409 16.939 13.2106 17.2437 12.9653C17.5484 12.72 17.7571 12.3754 17.8333 11.9917L19.1666 5.00004H4.99998" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <a class="header__sign-up" href="#">Sign Up</a>
+        <a class="header__sign-in" href="#">Sign In</a>
     </header>
-
-    <section class="introduction">
-        <h1 class="introduction__title">Find Your Dream House</h1>
-        <p class="introduction__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra posuere sem purus enim eleifend habitant arcu, sed.</p>
-        <form class="introduction__form find-dreem">
-            <label class="find-dreem__label">
-                <span class="find-dreem__label-title">
-                    Location
-                </span>
-                <input class="find-dreem__input" type="text" name="location" value="California">
-            </label>
-            <label class="find-dreem__label">
-                <span class="find-dreem__label-title">
-                    Properties
-                </span>
-                <input class="find-dreem__input" type="text" name="properties" value="Delux">
-            </label>
-            <label class="find-dreem__label">
-                <span class="find-dreem__label-title">
-                    Price
-                </span>
-                <select class="find-dreem__select" name="price">
-                    <option value="5000">less then $5000</option>
-                    <option value="5000-10000">$5,000-$10,0000</option>
-                    <option value="10000-12000" selected>$10,000-$12,0000</option>
-                    <option value="12000-15000" selected>$12,000-$15,0000</option>
-                </select>
-            </label>
-            <button class="find-dreem__submit" type="submit">Search</button>
-        </form>
-    </section>
-
-    <section class="section specializing">
-        <div class="section__wrapper specializing__wrapper">
-            <div class="specializing__left">
-                <img
-                    class="specializing__main-img"
-                    srcset="img/spec_1040x1122.jpg 1040w, img/spec_520x561.jpg 520w"
-                    sizes="520px"
-                    src="img/spec_520x561.jpg"
-                    alt="">
-                <img
-                    class="specializing__additional-img"
-                    src="img/spec1_480x320.jpg" alt="">
+    <div>
+        <article>
+            <div>
+                <img src="" alt="">
             </div>
-            <div class="specializing__right">
-                <div class="specializing__section-type">About Us</div>
-                <h2 class="specializing__title">We are Specializing in interior Improvements</h2>
-                <p class="specializing__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut viverra posuere sem purus enim eleifend habitant arcu, sed.</p>
-                <div class="specializing__option">
-                    <div class="specializing__option-icon">
-                        <img class="specializing__option-img" src="img/consulting.svg" alt="">
-                    </div>
-                    <h3 class="specializing__option-title">Free Consultation</h3>
-                    <p class="specializing__option-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="specializing__option">
-                    <div class="specializing__option-icon">
-                        <img class="specializing__option-img" src="img/members.svg" alt="">
-                    </div>
-                    <h3 class="specializing__option-title">Best Team Members</h3>
-                    <p class="specializing__option-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <a class="specializing__explore" href="#">Explore Now</a>
+            <div>
+                <h2>Kembang Flower Mantap</h2>
+                <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>
             </div>
+        </article>
+        <div>
+            <button>
+                Previous
+                Kaktus Plant
+            </button>
+            <button>
+                Next
+                Rahasia Plant
+            </button>
         </div>
-    </section>
+    </div>
+
 </body>
 </html>
