@@ -8,7 +8,71 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="main"></main>
+    <main class="main">
+        <div>
+            <h1>22 March, 2020</h1>
+        </div>
+        <div class="timeline">
+            <ul class="timeline__hours" aria-hidden="true">
+                <li>
+                    <span>09:00</span>
+                </li>
+                <li>
+                    <span>10:00</span>
+                </li>
+                <li>
+                    <span>11:00</span>
+                </li>
+                <li>
+                    <span>12:00</span>
+                </li>
+                <li>
+                    <span>13:00</span>
+                </li>
+                <li>
+                    <span>14:00</span>
+                </li>
+                <li>
+                    <span>15:00</span>
+                </li>
+                <li>
+                    <span>16:00</span>
+                </li>
+                <li>
+                    <span>17:00</span>
+                </li>
+                <li>
+                    <span>18:00</span>
+                </li>
+                <li>
+                    <span>19:00</span>
+                </li>
+                <li>
+                    <span>20:00</span>
+                </li>
+            </ul>
+            <ul class="timeline__events">
+                <li
+                    class="timeline__event timeline__event--finance"
+                    style="height: calc(1*var(--hour-height)); top: 0;"
+                >
+                    Meet Sophia in airport
+                </li>
+                <li
+                    class="timeline__event timeline__event--design"
+                    style="height: calc(2.4*var(--hour-height)); top: calc(2*var(--hour-height))"
+                >
+                    Studio workshop
+                </li>
+                <li
+                    class="timeline__event timeline__event--managment"
+                    style="height: calc(2*var(--hour-height)); top: calc(6*var(--hour-height))"
+                >
+                    Design workshop with Johny Ive
+                </li>
+            </ul>
+        </div>
+    </main>
     <aside class="aside">
         <div class="calendar">
             <div class="calendar__header">
@@ -17,25 +81,127 @@
                         <path d="M19 1L1 19L19 37"/>
                     </svg>
                 </button>
-                <span class="calendar__title">March 2018</span>
+                <span class="calendar__title">March 2020</span>
                 <button class="calendar__btn calendar__btn--next" aria-label="Next month">
                     <svg class="calendar__btn-image calendar__btn-image--reverse" viewBox="0 0 20 38" role="img" aria-label="">
                         <path d="M19 1L1 19L19 37"/>
                     </svg>
                 </button>
             </div>
-            <ul class="calendar__day-names">
-                <li class="calendar__day">M</li>
-                <li class="calendar__day">T</li>
-                <li class="calendar__day">W</li>
-                <li class="calendar__day">T</li>
-                <li class="calendar__day">F</li>
-                <li class="calendar__day">Sat</li>
-                <li class="calendar__day">Sun</li>
+            <ul class="calendar__day-names" aria-hidden="true">
+                <li class="calendar__day-name">M</li>
+                <li class="calendar__day-name">T</li>
+                <li class="calendar__day-name">W</li>
+                <li class="calendar__day-name">T</li>
+                <li class="calendar__day-name">F</li>
+                <li class="calendar__day-name">Sat</li>
+                <li class="calendar__day-name">Sun</li>
             </ul>
             <ul class="calendar__days">
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="Mon, 24 Fevruary, 2020" href="?day=2020-02-24">24</a>
+                </li>
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="Tue, 25 Fevruary, 2020" href="?day=2020-02-24">25</a>
+                </li>
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="Wed, 26 Fevruary, 2020" href="?day=2020-02-24">26</a>
+                </li>
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="24 Fevruary, 2020" href="?day=2020-02-24">27</a>
+                </li>
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="24 Fevruary, 2020" href="?day=2020-02-24">28</a>
+                </li>
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="24 Fevruary, 2020" href="?day=2020-02-24">29</a>
+                </li>
                 <li class="calendar__day">
-                    <a href="?day=">1</a>
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">1</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">2</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">3</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">4</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">5</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">6</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">7</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">8</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">9</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">10</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day calendar__day--viewed">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day calendar__day--current">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day calendar__day--current">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day calendar__day--current">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day calendar__day--current">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day calendar__day--current">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day calendar__day--current">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">11</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">29</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">30</a>
+                </li>
+                <li class="calendar__day">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">31</a>
+                </li>
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="1 April, 2020" href="?day=2020-03-01">1</a>
+                </li>
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">2</a>
+                </li>
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">3</a>
+                </li>
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">4</a>
+                </li>
+                <li class="calendar__day calendar__day--not-in-month">
+                    <a aria-label="1 March, 2020" href="?day=2020-03-01">5</a>
                 </li>
             </ul>
         </div>

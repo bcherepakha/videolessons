@@ -133,3 +133,133 @@ body {
 .calendar__btn-image--reverse {
     transform: rotate(180deg);
 }
+
+.calendar__day-names {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    padding: 7.51252087% 0;
+    margin-top: 20px;
+    column-gap: 5px;
+}
+
+.calendar__day-name {
+    flex: 1 0 0;
+    text-align: center;
+}
+
+.calendar__days {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 5px;
+}
+
+.calendar__day {
+    flex: 1 0 13%;
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 21.7028381%;
+}
+
+.calendar__day a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    aspect-ratio: 1;
+
+    background: transparent;
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar__day a:hover {
+    background-color: #3C82F9;
+}
+
+.main {
+    padding: 83px 6.08137045%;
+}
+
+.timeline {
+    position: relative;
+    --hour-height: 123px;
+    --time-shift: 155px;
+}
+
+.timeline__hours {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+}
+
+.timeline__hours li {
+    height: var(--hour-height);
+    border-top: 2px solid #F3F3F3;
+    margin-left: var(--time-shift);
+    box-sizing: border-box;
+}
+
+.timeline__hours li span {
+    position: absolute;
+    display: block;
+    transform: translate(calc(-1*var(--time-shift)), -50%) translateY(2px);
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 30px;
+
+    color: #A4B0C3;
+}
+
+.timeline__events {
+    position: absolute;
+    top: 0;
+    left: var(--time-shift);
+    right: 0;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+}
+
+.timeline__event {
+    position: absolute;
+    --border-color: #8576ED;
+    --background-color: rgba(133, 118, 237, 0.15);
+    border-left: 6px solid var(--border-color);
+    background: var(--background-color);
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline__event--design {
+    --border-color: #3D83F9;
+    --background-color: rgba(61, 131, 249, 0.15);
+}
+
+.timeline__event--managment {
+    --border-color: #EEA57C;
+    --background-color:rgba(238, 165, 124, 0.15);
+}
