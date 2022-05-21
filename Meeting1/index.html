@@ -11,42 +11,41 @@
 </head>
 <body>
     <header class="header">
-        <a href="/Meeting1/">
-            <img src="img/logo.png" alt="Pulstar">
+        <a class="header__main" href="/Meeting1/">
+            <img class="header__main-img" src="img/logo.png" alt="Pulstar">
         </a>
-        <nav>
-            <ul>
+        <nav class="header__nav">
+            <ul class="header__items">
                 <li>
-                    <a href="/Meeting1">Home</a>
+                    <a class="header__link" href="/Meeting1">Home</a>
                 </li>
                 <li>
-                    <a href="/Meeting1/#">About</a>
+                    <a class="header__link" href="/Meeting1/#">About</a>
                 </li>
                 <li>
-                    <a href="/Meeting1/#">Journal</a>
+                    <a class="header__link" href="/Meeting1/#">Journal</a>
                 </li>
                 <li>
-                    <a href="/Meeting1/#">Shop</a>
+                    <a class="header__link" href="/Meeting1/#">Shop</a>
                 </li>
                 <li>
-                    <a href="/Meeting1/#">Contact</a>
+                    <a class="header__link" href="/Meeting1/#">Contact</a>
                 </li>
-                <li>
-                    <a href="/Meeting1/#">
+                <li class="header__item header__item--buy">
+                    <a class="header__link header__link--btn" href="/Meeting1/#">
                         Buy Template
                     </a>
                 </li>
-                <li>
-                    <a href="/Meeting1/#" aria-label="Order">
+                <li class="header__item header__item--basket">
+                    <a class="header__link header__link--btn header__link--basket" href="/Meeting1/#" aria-label="Order">
                         <svg
                             role="img"
                             aria-label=""
-                            width="17"
-                            height="17"
+                            class="header__basket-icon"
                             viewBox="0 0 17 17">
                             <path d="M2.60593 2H0V0H4.39407L4.84288 4H16V9.93845L3.76941 12.3694L2.60593 2ZM15.5 17C14.6716 17 14 16.3284 14 15.5C14 14.6716 14.6716 14 15.5 14C16.3284 14 17 14.6716 17 15.5C17 16.3284 16.3284 17 15.5 17ZM5.5 17C4.67157 17 4 16.3284 4 15.5C4 14.6716 4.67157 14 5.5 14C6.32843 14 7 14.6716 7 15.5C7 16.3284 6.32843 17 5.5 17Z"/>
                         </svg>
-                        <span aria-hidden="true">
+                        <span class="header__basket-counter" aria-hidden="true">
                             0
                         </span>
                     </a>
@@ -54,5 +53,17 @@
             </ul>
         </nav>
     </header>
+    <article class="main">
+        <div>
+            <h2>Shop hundreds of enamel pins from artists.</h2>
+            <div>
+                <a href="#">Shop everything</a>
+                <a href="#">Browse collections</a>
+            </div>
+        </div>
+        <div>
+            <img src="" alt="">
+        </div>
+    </article>
 </body>
 </html>

@@ -82,6 +82,11 @@ body {
     color: #fff;
 
     box-sizing: border-box;
+    transition: color .8s ease-in-out 0s;
+}
+
+.calendar__btn:hover {
+    color: red;
 }
 
 .calendar__btn::before {

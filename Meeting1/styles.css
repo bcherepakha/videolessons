@@ -39,4 +39,123 @@ body {
     margin: 0 auto;
     padding: 12px 24px;
     box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.header__main {
+    flex: 0 0 80px;
+    display: flex;
+}
+
+.header__main-img {
+    width: 100%;
+    aspect-ratio: 80/24;
+}
+
+.header__nav {
+    flex: 1 1 auto;
+}
+
+.header__items {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 0, 1, 1 */
+.header__items li {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+}
+
+/* 0, 2, 1 */
+.header__items li.header__item--buy {
+    margin: 0 12px 0 20px;
+}
+
+.header__items li.header__item--basket {
+    margin: 0;
+}
+
+.header__link {
+    display: block;
+
+    font-size: .518518519rem;
+    line-height: 1.35714286;
+
+    color: #3F3B3D;
+    background: transparent;
+
+    text-decoration: none;
+
+    position: relative;
+}
+
+.header__link--btn {
+    background: #DDDBDA;
+    border-radius: 3px;
+    padding: 14px 18px;
+}
+
+.header__link--basket {
+    background: #F8F9FA;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    flex: 1 0 70px;
+}
+
+/* .header__items li a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+}
+
+.header__items li a:hover::before {
+    box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 23px 16px 19px 9px rgba(0,0,0,0);
+} */
+
+.header__link:hover,
+.header__link:focus {
+    text-shadow: 1px 1px 2px pink;
+    outline: none;
+}
+
+.header__link--btn:hover,
+.header__link--btn:focus {
+    text-shadow: none;
+    background: #414140;
+    color: #fff;
+}
+
+.header__basket-icon {
+    flex: 0 0 17px;
+    aspect-ratio: 1;
+}
+
+.header__basket-counter {
+    --width: 18px;
+    display: block;
+    flex: 0 0 var(--width);
+    max-width: var(--width);
+    aspect-ratio: 1;
+
+    background: #3F3B3D;
+    color: #fff;
+    border-radius: 50%;
+
+    text-align: center;
+    overflow: hidden;
+
+    font-size: 11px;
+    line-height: var(--width);
 }
