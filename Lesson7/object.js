@@ -17,7 +17,7 @@ const user = {
     group: 'fe2809',
 };
 
-console.log( user.group );
+console.log('user.group = ', user.group, '; expected fe2809' );
 
 user.group = 'videolessons';
 
