@@ -1,0 +1,90 @@
+.cross__board {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid black;
+
+    margin: 0 auto;
+
+    box-sizing: border-box;
+}
+
+.cross__board--row {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+.cross__board-item {
+    position: relative;
+    flex: 1 0 33%;
+
+    padding-top: 33%;
+    height: 0;
+
+    border: 1px solid black;
+
+    box-sizing: border-box;
+}
+
+.x, .o {
+    stroke: black;
+    stroke-width: 7;
+    stroke-linecap: round;
+}
+
+.o {
+    fill: none;
+    stroke-dasharray: 200;
+
+    animation: a-o 2s linear 0s 1 normal backwards;
+}
+
+.x__line1,
+.x__line2 {
+    animation: a-x 1s linear 0s 1 normal backwards;
+    stroke-dasharray: 73;
+}
+
+.x__line2 {
+    animation-delay: 1s;
+}
+
+@keyframes a-x {
+    from {
+        stroke-dashoffset: 73;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes a-o {
+    from {
+        stroke-dashoffset: 200;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.cross__board-item-el {
+    position: absolute;
+
+    width: 80%;
+    height: 80%;
+
+    top: 10%;
+    left: 10%;
+}
+
+.cross__board-item:hover {
+    background-color: rgba(155, 224, 250, 0.16);
+    cursor: pointer;
+}
