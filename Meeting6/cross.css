@@ -88,3 +88,7 @@
     background-color: rgba(155, 224, 250, 0.16);
     cursor: pointer;
 }
+
+.actions button[data-selected="true"] {
+    background: rgb(131, 235, 248);
+}

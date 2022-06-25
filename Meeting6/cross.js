@@ -1,4 +1,4 @@
-function Cross(gameSelector) {
+export function Cross(gameSelector) {
     // this = {}
     // this.__proto__ = Cross.prototype
 
@@ -9,6 +9,19 @@ function Cross(gameSelector) {
     this.start();
 
     this.cells.forEach((cell, idx) => cell.addEventListener('click', this.step.bind(this, idx)));
+
+    // const self = this;
+    // const applyCellEvents = function (cell, idx) {
+    //     console.log(self);
+    //     cell.addEventListener('click', self.step.bind(self, idx));
+    // };
+
+    // // this.cells.forEach(applyCellEvents);
+
+    // for (let idx = 0; idx < this.cells.length; idx++) {
+    //     // applyCellEvents.call(this, this.cells[idx], idx); // this = undefined | Window
+    //     applyCellEvents(this.cells[idx], idx);
+    // }
 
     // return this;
 }
@@ -153,7 +166,7 @@ Cross.prototype.getLines = function () {
     );
 
     return lines;
-}
+};
 
 Cross.prototype.getWinLine = function (lines, symbol) {
     return lines.find(function (line) {
@@ -161,4 +174,4 @@ Cross.prototype.getWinLine = function (lines, symbol) {
             return el === symbol;
         });
     });
-}
+};

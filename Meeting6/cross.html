@@ -5,22 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cross</title>
     <link rel="stylesheet" href="cross.css">
-    <script src="settings.js" defer></script>
-    <script src="cross.js" defer></script>
-    <script src="app.js" defer></script>
+    <script src="settings.js" type="module"></script>
+    <script src="cross.js" type="module"></script>
+    <script src="app.js" type="module"></script>
 </head>
 <body>
-    <form class="actions app1settings">
-        <select name="robotName">
+    <form action='' class="actions app1settings">
+        <!-- <select name="robotName">
             <option value="human">Играть с человеком</option>
             <option selected value="X">Компьютер играет крестиками</option>
             <option value="O">Компьютер играет ноликами</option>
             <option value="computer">Компьютер играет сам</option>
-        </select>
+        </select> -->
         <button
+            data-selected="true"
+            name="robotName"
+            value="O"
             type="submit"
-            class="action action--start">
-            Начать заново
+            class="action">
+            Играть крестиками
+        </button>
+        <button
+            name="robotName"
+            value="X"
+            type="submit"
+            class="action">
+            Играть ноликами
+        </button>
+        <button
+            name="robotName"
+            value="human"
+            type="submit"
+            class="action">
+            Играть с человеком
+        </button>
+        <button
+            name="robotName"
+            value="computer"
+            type="submit"
+            class="action">
+            Компьютер играет с компьютером
         </button>
     </form>
     <div class="cross app1">
