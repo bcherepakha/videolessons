@@ -5,6 +5,7 @@ export function Cross(gameSelector) {
     this.gameEl = document.querySelector(gameSelector);
     this.boardEl = this.gameEl.querySelector('.cross__board');
     this.cells = Array.from(this.gameEl.querySelectorAll('.cross__board-item'));
+    this._nextMoves = [];
 
     this.start();
 
@@ -78,13 +79,24 @@ Cross.prototype.start = function start() {
     this.state = {
         status: Cross.STARTED,
         currentUser: Cross.X,
-        board: new Array(9).fill(Cross.EMPTY)
+        board: new Array(9).fill(Cross.EMPTY),
+        moves: []
     };
+
+    // this._nextMove = null;
 };
 
 Cross.prototype.clearBoard = function () {
     this.cells.forEach(cell => cell.innerText = '');
 };
+
+Cross.prototype.resetMoves = function () {
+    this._nextMoves = [];
+}
+
+Cross.prototype.setNextMove = function (nextMove) {
+    this._nextMoves.push(nextMove);
+}
 
 Cross.prototype.step = function (idx) {
     const cell = this.cells[idx];
@@ -105,6 +117,10 @@ Cross.prototype.step = function (idx) {
     cell.append(el);
 
     this.state.board[idx] = currentUser;
+    this.state.moves.push({
+        user: currentUser,
+        position: idx
+    });
 
     const lines = this.getLines();
     const winLine = this.getWinLine(lines, currentUser);
@@ -114,8 +130,15 @@ Cross.prototype.step = function (idx) {
         alert(`Winner: ${currentUser}`);
     } else {
         this.state.currentUser = newUser;
+        this.applyMoves();
     }
 };
+
+Cross.prototype.applyMoves = function () {
+    if (this._nextMoves.length) {
+        this._nextMoves.forEach(f => f());
+    }
+}
 
 Cross.prototype.getLines = function () {
     const lines = [];
