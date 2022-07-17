@@ -6,9 +6,11 @@
     <title>Cross</title>
     <link rel="stylesheet" href="cross.css">
     <script src="board.js" defer></script>
+    <script src="settings.js" defer></script>
 </head>
 <body>
-    <form class="actions">
+    <form noValidate class="game actions">
+        <input required type="text" name="userName" value="">
         <select name="robotName">
             <option value="human">Играть с человеком</option>
             <option selected value="X">Компьютер играет крестиками</option>

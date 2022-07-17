@@ -210,6 +210,6 @@ Board.prototype.isLineWin = function(line, symbol) {
     return line.data.every(currentSymbol => currentSymbol === symbol);
 }
 
-const currentBoard = new Board('.game');
+const currentBoard = new Board('.game.cross');
 
 console.log( currentBoard );
