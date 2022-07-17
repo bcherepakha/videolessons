@@ -1,3 +1,7 @@
+.cross {
+    margin: 20px auto;
+}
+
 .cross__board {
     display: flex;
     flex-direction: column;
