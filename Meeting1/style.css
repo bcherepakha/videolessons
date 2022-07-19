@@ -123,9 +123,14 @@ body {
 }
 
 .header__basket {
-    background: #F8F9FA;
+    flex: 0 0 auto;
+
+    background: red; /* #F8F9FA; */
     border-radius: 3px;
     padding: 12px;
+
+    box-sizing: border-box;
+
     margin-left: 12px;
 
     display: flex;
@@ -141,12 +146,16 @@ body {
 
 .header__basket svg {
     flex: 0 0 17px;
+    /* use for correct calc for image size in flexbox */
+    width: 17px;
     aspect-ratio: 1;
     margin-right: 10px;
 }
 
 .header__basket span {
     flex: 0 0 18px;
+    /* use for correct calc for image size in flexbox */
+    width: 18px;
     aspect-ratio: 1;
 
     border-radius: 50%;
