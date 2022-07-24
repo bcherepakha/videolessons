@@ -280,8 +280,116 @@ body {
     .collection__content {
         order: 2;
     }
+}
 
+.header__burger {
+    display: none;
+
+    border: 0;
+    background: transparent;
+    padding: 0;
+
+    width: 42px;
+    aspect-ratio: 1;
+
+    cursor: pointer;
+
+    padding: 6px;
+
+    box-sizing: border-box;
+    color: #3F3B3D;
+
+    transition: all .6s linear 0s;
+    will-change: background-color, color;
+}
+
+.header__burger:hover,
+.header__burger:focus {
+    background: #DDDBDA;
+    color: #a7310d;
+}
+
+.header__burger-img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+@media screen and (max-width: 800px) {
     .header__nav {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        position: fixed;
+        left: 50%;
+
+        min-width: 300px;
+        padding: 20px;
+
+        top: 0%;
+        transform: translate(-50%, -120%);
+
+        box-shadow: 0px 0px 20px 0px #a14029;
+
+        background: #fff;
+
+        z-index: 99999;
+
+        transition: all .6s linear 0s;
+        will-change: top, transform;
+    }
+
+    .header__nav--open {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .header__links {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .header__links li:not(:first-child),
+    .header__links .header__link--buy-template.header__link--buy-template,
+    .header__link--basket.header__link--basket.header__link--basket {
+        margin: 0;
+    }
+
+    .header__burger {
+        display: block;
+        margin-left: auto;
+    }
+
+    .header__burger-top-line {
+        transform-origin: 50% 26.19%;
+    }
+
+    .header__burger-bottom-line {
+        transform-origin: 50% 73.8095%;
+    }
+
+    .header__burger-top-line,
+    .header__burger-bottom-line {
+        transform: translateY(0) rotate(0);
+        transition: transform .6s linear 0s;
+    }
+
+    .header__burger--open .header__burger-middle-line {
+        opacity: 0;
+    }
+
+    .header__burger--open .header__burger-top-line {
+        transform: translateY(23.8095%) rotate(45deg);
+    }
+
+    .header__burger--open .header__burger-bottom-line {
+        transform: translateY(-23.8095%) rotate(-45deg);
     }
 }
